@@ -1,0 +1,162 @@
+:root {
+  --bg: #fafaf9;
+  --card-bg: #ffffff;
+  --ink: #1c1917;
+  --sub: #78716c;
+  --accent: #2563eb;
+  --key-bg: #f1f5f9;
+  --key-border: #cbd5e1;
+  --divider: #e7e5e4;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #18181b;
+    --card-bg: #232326;
+    --ink: #f4f4f5;
+    --sub: #a1a1aa;
+    --accent: #60a5fa;
+    --key-bg: #2f2f33;
+    --key-border: #46464b;
+    --divider: #3a3a3e;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px 60px;
+  min-height: 100vh;
+}
+
+h1.eyebrow {
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sub);
+  margin: 0 0 16px;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--card-bg);
+  border: 1px solid var(--divider);
+  border-radius: 16px;
+  padding: 20px 22px 22px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.card-title { font-size: 20px; font-weight: 700; margin: 0 0 2px; }
+.card-sub { font-size: 12px; color: var(--sub); margin: 0 0 16px; }
+
+.prefix {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--sub);
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+kbd {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 12.5px;
+  background: var(--key-bg);
+  border: 1px solid var(--key-border);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  padding: 3px 7px;
+  color: var(--ink);
+}
+
+table { width: 100%; border-collapse: collapse; }
+tr + tr td { border-top: 1px solid var(--divider); }
+td { padding: 7px 0; font-size: 13.5px; vertical-align: middle; }
+td.keys { white-space: nowrap; width: 1%; padding-right: 14px; }
+td.desc { color: var(--sub); }
+
+.section-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-top: 14px !important;
+  padding-bottom: 4px !important;
+  border-top: none !important;
+}
+tr.section-row td { border-top: none; }
+
+.hint {
+  max-width: 380px;
+  font-size: 11.5px;
+  color: var(--sub);
+  text-align: center;
+  margin-top: 14px;
+  line-height: 1.6;
+}
+
+.actions { display: flex; gap: 10px; margin-top: 18px; }
+button, a.button {
+  font-size: 13px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--key-border);
+  background: var(--key-bg);
+  color: var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+button:hover, a.button:hover { border-color: var(--accent); color: var(--accent); }
+
+.qr-wrap {
+  margin-top: 26px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.qr-wrap.show { display: flex; }
+.qr-box { background: #fff; padding: 10px; border-radius: 12px; border: 1px solid var(--divider); }
+.qr-box img { display: block; width: 160px; height: 160px; }
+.qr-caption { font-size: 11px; color: var(--sub); word-break: break-all; text-align: center; max-width: 260px; }
+
+/* hub page: list of cheatsheets */
+.list { width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 10px; }
+.list-item {
+  display: block;
+  background: var(--card-bg);
+  border: 1px solid var(--divider);
+  border-radius: 14px;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.list-item:hover { border-color: var(--accent); }
+.list-item .name { font-weight: 700; font-size: 15px; }
+.list-item .desc { font-size: 12px; color: var(--sub); margin-top: 2px; }
+
+@media print {
+  body { padding: 0; background: #fff; }
+  h1.eyebrow, .hint, .actions, .qr-wrap { display: none; }
+  .card {
+    box-shadow: none;
+    border: 1px solid #999;
+    width: 91mm;
+    max-width: 91mm;
+    padding: 5mm 6mm;
+    border-radius: 3mm;
+  }
+  .card-title { font-size: 13pt; }
+  .card-sub { font-size: 7.5pt; }
+  td { font-size: 8.5pt; padding: 3px 0; }
+  kbd { font-size: 7.5pt; padding: 1px 4px; }
+  .section-label { font-size: 6.5pt; }
+}

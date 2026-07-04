@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Herdr Cheatsheet</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐑</text></svg>">
+<link rel="stylesheet" href="../assets/base.css">
+</head>
+<body>
+
+<h1 class="eyebrow">Print &amp; Cut · 91×55mm</h1>
+
+<div class="card" id="cheatcard">
+  <div class="card-title">Herdr Cheatsheet</div>
+  <div class="card-sub">agent multiplexer for the terminal</div>
+  <div class="prefix">prefix &nbsp;<kbd>Ctrl</kbd>+<kbd>B</kbd> &nbsp;then release, then press key</div>
+
+  <table>
+    <tr class="section-row"><td class="section-label" colspan="2">Split / Tab</td></tr>
+    <tr><td class="keys"><kbd>V</kbd></td><td class="desc">右に分割</td></tr>
+    <tr><td class="keys"><kbd>-</kbd></td><td class="desc">下に分割</td></tr>
+    <tr><td class="keys"><kbd>C</kbd></td><td class="desc">新規タブ</td></tr>
+    <tr><td class="keys"><kbd>N</kbd> / <kbd>P</kbd></td><td class="desc">次 / 前のタブ</td></tr>
+
+    <tr class="section-row"><td class="section-label" colspan="2">Workspace</td></tr>
+    <tr><td class="keys"><kbd>W</kbd></td><td class="desc">ワークスペース切替</td></tr>
+    <tr><td class="keys">⇧<kbd>N</kbd></td><td class="desc">新規ワークスペース</td></tr>
+
+    <tr class="section-row"><td class="section-label" colspan="2">Session</td></tr>
+    <tr><td class="keys"><kbd>Q</kbd></td><td class="desc">detach（切断）</td></tr>
+  </table>
+</div>
+
+<div class="hint">
+  スマホで開いたらホーム画面に追加すると疑似アプリとして使えます。<br>
+  印刷するとカード部分だけが名刺サイズ（91×55mm）で出力されます。
+</div>
+
+<div class="actions">
+  <button onclick="window.print()">印刷</button>
+  <button id="qrBtn">このページのQR</button>
+  <a class="button" href="../">一覧へ</a>
+</div>
+
+<div class="qr-wrap" id="qrWrap">
+  <div class="qr-box"><img id="qrImg" alt="QR code for this page"></div>
+  <div class="qr-caption" id="qrCaption"></div>
+</div>
+
+<script src="../assets/qrcode.js"></script>
+<script src="../assets/qr.js"></script>
+<script>setupQrButton('qrBtn', 'qrWrap', 'qrImg', 'qrCaption');</script>
+
+</body>
+</html>

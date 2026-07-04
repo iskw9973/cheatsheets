@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Herdr Cheatsheet</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐑</text></svg>">
+<style>
+  :root {
+    --bg: #fafaf9;
+    --card-bg: #ffffff;
+    --ink: #1c1917;
+    --sub: #78716c;
+    --accent: #2563eb;
+    --key-bg: #f1f5f9;
+    --key-border: #cbd5e1;
+    --divider: #e7e5e4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #18181b;
+      --card-bg: #232326;
+      --ink: #f4f4f5;
+      --sub: #a1a1aa;
+      --accent: #60a5fa;
+      --key-bg: #2f2f33;
+      --key-border: #46464b;
+      --divider: #3a3a3e;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 60px;
+    min-height: 100vh;
+  }
+
+  h1 {
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sub);
+    margin: 0 0 16px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 380px;
+    background: var(--card-bg);
+    border: 1px solid var(--divider);
+    border-radius: 16px;
+    padding: 20px 22px 22px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  .card-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 2px;
+  }
+  .card-sub {
+    font-size: 12px;
+    color: var(--sub);
+    margin: 0 0 16px;
+  }
+
+  .prefix {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--sub);
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  kbd {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 12.5px;
+    background: var(--key-bg);
+    border: 1px solid var(--key-border);
+    border-bottom-width: 2px;
+    border-radius: 6px;
+    padding: 3px 7px;
+    color: var(--ink);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  tr + tr td { border-top: 1px solid var(--divider); }
+  td { padding: 7px 0; font-size: 13.5px; vertical-align: middle; }
+  td.keys { white-space: nowrap; width: 1%; padding-right: 14px; }
+  td.desc { color: var(--sub); }
+
+  .section-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 14px !important;
+    padding-bottom: 4px !important;
+    border-top: none !important;
+  }
+  tr.section-row td { border-top: none; }
+
+  .hint {
+    max-width: 380px;
+    font-size: 11.5px;
+    color: var(--sub);
+    text-align: center;
+    margin-top: 14px;
+    line-height: 1.6;
+  }
+
+  .actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  button {
+    font-size: 13px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--key-border);
+    background: var(--key-bg);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  button:hover { border-color: var(--accent); color: var(--accent); }
+
+  .qr-wrap {
+    margin-top: 26px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .qr-wrap.show { display: flex; }
+  .qr-box {
+    background: #fff;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid var(--divider);
+  }
+  .qr-box img { display: block; width: 160px; height: 160px; }
+  .qr-caption { font-size: 11px; color: var(--sub); word-break: break-all; text-align: center; max-width: 260px; }
+
+  @media print {
+    body { padding: 0; background: #fff; }
+    h1, .hint, .actions, .qr-wrap { display: none; }
+    .card {
+      box-shadow: none;
+      border: 1px solid #999;
+      width: 91mm;
+      max-width: 91mm;
+      padding: 5mm 6mm;
+      border-radius: 3mm;
+    }
+    .card-title { font-size: 13pt; }
+    .card-sub { font-size: 7.5pt; }
+    td { font-size: 8.5pt; padding: 3px 0; }
+    kbd { font-size: 7.5pt; padding: 1px 4px; }
+    .section-label { font-size: 6.5pt; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Print &amp; Cut · 91×55mm</h1>
+
+<div class="card" id="cheatcard">
+  <div class="card-title">Herdr Cheatsheet</div>
+  <div class="card-sub">agent multiplexer for the terminal</div>
+  <div class="prefix">prefix &nbsp;<kbd>Ctrl</kbd>+<kbd>B</kbd> &nbsp;then release, then press key</div>
+
+  <table>
+    <tr class="section-row"><td class="section-label" colspan="2">Split / Tab</td></tr>
+    <tr><td class="keys"><kbd>V</kbd></td><td class="desc">右に分割</td></tr>
+    <tr><td class="keys"><kbd>-</kbd></td><td class="desc">下に分割</td></tr>
+    <tr><td class="keys"><kbd>C</kbd></td><td class="desc">新規タブ</td></tr>
+    <tr><td class="keys"><kbd>N</kbd> / <kbd>P</kbd></td><td class="desc">次 / 前のタブ</td></tr>
+
+    <tr class="section-row"><td class="section-label" colspan="2">Workspace</td></tr>
+    <tr><td class="keys"><kbd>W</kbd></td><td class="desc">ワークスペース切替</td></tr>
+    <tr><td class="keys">⇧<kbd>N</kbd></td><td class="desc">新規ワークスペース</td></tr>
+
+    <tr class="section-row"><td class="section-label" colspan="2">Session</td></tr>
+    <tr><td class="keys"><kbd>Q</kbd></td><td class="desc">detach（切断）</td></tr>
+  </table>
+</div>
+
+<div class="hint">
+  スマホで開いたらホーム画面に追加すると疑似アプリとして使えます。<br>
+  印刷するとカード部分だけが名刺サイズ（91×55mm）で出力されます。
+</div>
+
+<div class="actions">
+  <button onclick="window.print()">印刷</button>
+  <button id="qrBtn">このページのQR</button>
+</div>
+
+<div class="qr-wrap" id="qrWrap">
+  <div class="qr-box"><img id="qrImg" alt="QR code for this page"></div>
+  <div class="qr-caption" id="qrCaption"></div>
+</div>
+
+<script src="qrcode.js"></script>
+<script>
+  var qrBtn = document.getElementById('qrBtn');
+  var qrWrap = document.getElementById('qrWrap');
+  var qrImg = document.getElementById('qrImg');
+  var qrCaption = document.getElementById('qrCaption');
+  var rendered = false;
+
+  qrBtn.addEventListener('click', function () {
+    if (!rendered) {
+      var url = location.href.split('#')[0];
+      var qr = qrcode(0, 'M');
+      qr.addData(url);
+      qr.make();
+      qrImg.src = qr.createDataURL(6, 4);
+      qrCaption.textContent = url;
+      rendered = true;
+    }
+    qrWrap.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zsh Line Editing Cheatsheet</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⌨️</text></svg>">
+<link rel="stylesheet" href="../assets/base.css">
+</head>
+<body>
+
+<h1 class="eyebrow">Print &amp; Cut · 91×55mm</h1>
+
+<div class="card" id="cheatcard">
+  <div class="card-title">Zsh Line Editing</div>
+  <div class="card-sub">コマンドラインの移動・削除・編集</div>
+  <div class="prefix">⌥=Option &nbsp;⌃=Ctrl</div>
+
+  <table>
+    <tr class="section-row"><td class="section-label" colspan="2">移動</td></tr>
+    <tr><td class="keys">⌥+←/→</td><td class="desc">単語単位でジャンプ</td></tr>
+    <tr><td class="keys"><kbd>⌃A</kbd> / <kbd>⌃E</kbd></td><td class="desc">行頭 / 行末へ</td></tr>
+
+    <tr class="section-row"><td class="section-label" colspan="2">削除</td></tr>
+    <tr><td class="keys"><kbd>⌃W</kbd></td><td class="desc">前の単語を削除（連打が速い）</td></tr>
+    <tr><td class="keys"><kbd>⌥D</kbd></td><td class="desc">後ろの単語を削除</td></tr>
+    <tr><td class="keys"><kbd>⌃U</kbd></td><td class="desc">行まるごと削除</td></tr>
+    <tr><td class="keys"><kbd>⌃K</kbd></td><td class="desc">カーソルから行末まで削除</td></tr>
+
+    <tr class="section-row"><td class="section-label" colspan="2">やり直し</td></tr>
+    <tr><td class="keys"><kbd>⌃Y</kbd></td><td class="desc">削除したものを貼り戻す</td></tr>
+    <tr><td class="keys"><kbd>⌃_</kbd></td><td class="desc">undo</td></tr>
+
+    <tr class="section-row"><td class="section-label" colspan="2">長文の書き換え</td></tr>
+    <tr><td class="keys"><kbd>⌃X</kbd><kbd>⌃E</kbd></td><td class="desc">コマンドを vim で開いて編集</td></tr>
+  </table>
+</div>
+
+<div class="hint">
+  ⌥+矢印がパスの <code>/</code> ごとに止まるのは dotfiles の <code>WORDCHARS</code> 設定によるもの。<br>
+  ⌃X⌃E は保存して閉じるとそのまま実行される。長いコマンドの一部書き換えに最強。<br>
+  印刷するとカード部分だけが名刺サイズ（91×55mm）で出力されます。
+</div>
+
+<div class="actions">
+  <button onclick="window.print()">印刷</button>
+  <button id="qrBtn">このページのQR</button>
+  <a class="button" href="../">一覧へ</a>
+</div>
+
+<div class="qr-wrap" id="qrWrap">
+  <div class="qr-box"><img id="qrImg" alt="QR code for this page"></div>
+  <div class="qr-caption" id="qrCaption"></div>
+</div>
+
+<script src="../assets/qrcode.js"></script>
+<script src="../assets/qr.js"></script>
+<script>setupQrButton('qrBtn', 'qrWrap', 'qrImg', 'qrCaption');</script>
+
+</body>
+</html>

@@ -5,6 +5,7 @@
 - 一覧: https://iskw9973.github.io/cheatsheets/
 - Herdr: https://iskw9973.github.io/cheatsheets/herdr/
 - Ghostty: https://iskw9973.github.io/cheatsheets/ghostty/
+- Zsh Line Editing: https://iskw9973.github.io/cheatsheets/zsh/
 
 ## 構成
 

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neovim Cheatsheet</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+<link rel="stylesheet" href="../assets/base.css">
+</head>
+<body>
+
+<h1 class="eyebrow">Print &amp; Cut · 91×55mm</h1>
+
+<div class="card" id="cheatcard">
+  <div class="card-title">Neovim Cheatsheet</div>
+  <div class="card-sub">ノーマルモードの基本操作</div>
+  <div class="prefix">⌃=Ctrl &nbsp;コマンドはノーマルモードで入力</div>
+
+  <table>
+    <tr class="section-row"><td class="section-label" colspan="2">移動</td></tr>
+    <tr><td class="keys"><kbd>w</kbd> / <kbd>b</kbd></td><td class="desc">次 / 前の単語へ</td></tr>
+    <tr><td class="keys"><kbd>0</kbd> / <kbd>$</kbd></td><td class="desc">行頭 / 行末へ</td></tr>
+    <tr><td class="keys"><kbd>gg</kbd> / <kbd>G</kbd></td><td class="desc">ファイル先頭 / 末尾へ</td></tr>
+    <tr><td class="keys"><kbd>⌃D</kbd> / <kbd>⌃U</kbd></td><td class="desc">半画面下 / 上へスクロール</td></tr>
+
+    <tr class="section-row"><td class="section-label" colspan="2">編集</td></tr>
+    <tr><td class="keys"><kbd>ciw</kbd></td><td class="desc">単語を消して書き換え</td></tr>
+    <tr><td class="keys"><kbd>dd</kbd> / <kbd>yy</kbd> / <kbd>p</kbd></td><td class="desc">行を削除 / コピー / 貼り付け</td></tr>
+    <tr><td class="keys"><kbd>u</kbd> / <kbd>⌃R</kbd></td><td class="desc">undo / redo</td></tr>
+    <tr><td class="keys"><kbd>.</kbd></td><td class="desc">直前の変更を繰り返す</td></tr>
+
+    <tr class="section-row"><td class="section-label" colspan="2">検索・置換</td></tr>
+    <tr><td class="keys"><kbd>/foo</kbd> → <kbd>n</kbd> / <kbd>N</kbd></td><td class="desc">検索して次 / 前へ</td></tr>
+    <tr><td class="keys"><kbd>*</kbd></td><td class="desc">カーソル下の単語を検索</td></tr>
+    <tr><td class="keys"><kbd>:%s/old/new/g</kbd></td><td class="desc">ファイル全体を置換</td></tr>
+
+    <tr class="section-row"><td class="section-label" colspan="2">保存・終了</td></tr>
+    <tr><td class="keys"><kbd>:wq</kbd> / <kbd>:q!</kbd></td><td class="desc">保存して終了 / 破棄して終了</td></tr>
+  </table>
+</div>
+
+<div class="hint">
+  <code>ciw</code> と <code>.</code> の組み合わせが強力：1箇所書き換えて <code>n</code> で次へ飛び <code>.</code> で繰り返す。<br>
+  操作に迷ったら <code>:Tutor</code> で対話チュートリアルが開けます。<br>
+  印刷するとカード部分だけが名刺サイズ（91×55mm）で出力されます。
+</div>
+
+<script src="../assets/qrcode.js"></script>
+<script src="../assets/page.js"></script>
+
+</body>
+</html>

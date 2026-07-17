@@ -45,20 +45,8 @@
   全一覧は <code>ghostty +list-keybinds --default</code> で確認できます。
 </div>
 
-<div class="actions">
-  <button onclick="window.print()">印刷</button>
-  <button id="qrBtn">このページのQR</button>
-  <a class="button" href="../">一覧へ</a>
-</div>
-
-<div class="qr-wrap" id="qrWrap">
-  <div class="qr-box"><img id="qrImg" alt="QR code for this page"></div>
-  <div class="qr-caption" id="qrCaption"></div>
-</div>
-
 <script src="../assets/qrcode.js"></script>
-<script src="../assets/qr.js"></script>
-<script>setupQrButton('qrBtn', 'qrWrap', 'qrImg', 'qrCaption');</script>
+<script src="../assets/page.js"></script>
 
 </body>
 </html>

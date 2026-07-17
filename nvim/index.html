@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h1 class="eyebrow">Print &amp; Cut · 91×55mm</h1>
+<h1 class="eyebrow">Neovim</h1>
 
 <div class="card" id="cheatcard">
   <div class="card-title">Neovim Cheatsheet</div>
@@ -34,6 +34,12 @@
     <tr><td class="keys"><kbd>*</kbd></td><td class="desc">カーソル下の単語を検索</td></tr>
     <tr><td class="keys"><kbd>:%s/old/new/g</kbd></td><td class="desc">ファイル全体を置換</td></tr>
 
+    <tr class="section-row"><td class="section-label" colspan="2">ファイル一覧（netrw）</td></tr>
+    <tr><td class="keys"><kbd>:Ex</kbd></td><td class="desc">ファイル一覧を開く</td></tr>
+    <tr><td class="keys"><kbd>Enter</kbd> / <kbd>-</kbd></td><td class="desc">開く / 上のディレクトリへ</td></tr>
+    <tr><td class="keys"><kbd>%</kbd> / <kbd>d</kbd></td><td class="desc">新規ファイル / ディレクトリ作成</td></tr>
+    <tr><td class="keys"><kbd>:Rex</kbd></td><td class="desc">一覧から抜けて元のファイルへ戻る</td></tr>
+
     <tr class="section-row"><td class="section-label" colspan="2">保存・終了</td></tr>
     <tr><td class="keys"><kbd>:wq</kbd> / <kbd>:q!</kbd></td><td class="desc">保存して終了 / 破棄して終了</td></tr>
   </table>
@@ -41,8 +47,8 @@
 
 <div class="hint">
   <code>ciw</code> と <code>.</code> の組み合わせが強力：1箇所書き換えて <code>n</code> で次へ飛び <code>.</code> で繰り返す。<br>
-  操作に迷ったら <code>:Tutor</code> で対話チュートリアルが開けます。<br>
-  印刷するとカード部分だけが名刺サイズ（91×55mm）で出力されます。
+  netrw から抜けるのは <code>:Rex</code>（他に何も開いてなければ <code>:q</code> でそのまま終了）。<br>
+  操作に迷ったら <code>:Tutor</code> で対話チュートリアルが開けます。
 </div>
 
 <script src="../assets/qrcode.js"></script>

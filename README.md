@@ -12,19 +12,24 @@
 
 ```
 cheatsheets/
-├── index.html          # 一覧ページ
+├── index.html            # 一覧ページ
+├── manifest.webmanifest  # PWAマニフェスト
+├── sw.js                 # Service Worker（オフラインキャッシュ）
 ├── assets/
-│   ├── base.css         # 共通デザイン（カード・kbd・テーブル・QR表示など）
-│   ├── qrcode.js         # QRコード生成ライブラリ（kazuhikoarase/qrcode-generator）
-│   └── page.js           # 共通フッター（QR/一覧ボタン・QR表示部）の注入とQR生成
+│   ├── base.css           # 共通デザイン（カード・kbd・テーブル・QR表示など）
+│   ├── qrcode.js           # QRコード生成ライブラリ（kazuhikoarase/qrcode-generator）
+│   ├── page.js             # 共通フッター（QR/一覧ボタン・QR表示部）の注入とQR生成
+│   ├── pwa.js              # Service Workerの登録
+│   └── icon-192.png / icon-512.png  # アプリアイコン
 └── <tool-name>/
-    └── index.html        # 各チートシート本体
+    └── index.html          # 各チートシート本体
 ```
 
 各ページの機能：
 
 - **QR**: そのページ自身のURLをその場でQRコード化（外部サービス不使用、オフラインでも動く）。PCで開いてQR表示→スマホで読み取り、という使い方を想定。
-- **スマホ対応**: レスポンシブ。ホーム画面に追加すれば疑似アプリとして使える。
+- **PWA**: ホーム画面/デスクトップにアプリとしてインストール可能。Service Workerで全ページキャッシュ済みなのでオフラインでも開ける。
+- **スマホ対応**: レスポンシブ。
 - **ダーク/ライト自動対応**: `prefers-color-scheme` で追従。
 
 ## 新しいチートシートを追加する手順
@@ -42,6 +47,7 @@ cheatsheets/
    QRボタン・一覧へ戻るリンク・QR表示部は `page.js` が自動で挿入するので、ページ側に書くのはカード（`.card-title` / `table`）と `.hint` だけ。`herdr/index.html` をコピーして中身を書き換えるのが早い。
 
 3. トップの `index.html` の `.list` にリンクを1件追加する
+4. `sw.js` の `PRECACHE` に `./foo/` を追加し、`CACHE` のバージョンを上げる（例: `cheatsheets-v1` → `v2`）
 
    ```html
    <a class="list-item" href="foo/">
@@ -50,7 +56,7 @@ cheatsheets/
    </a>
    ```
 
-4. `main` に push すれば GitHub Pages が自動で再ビルドする（数十秒〜数分）
+5. `main` に push すれば GitHub Pages が自動で再ビルドする（数十秒〜数分）
 
 ## 動作確認
 

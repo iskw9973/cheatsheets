@@ -40,7 +40,7 @@ cheatsheets/
    <script src="../assets/page.js"></script>
    ```
 
-   印刷ボタン・QRボタン・一覧へ戻るリンク・QR表示部は `page.js` が自動で挿入するので、ページ側に書くのはカード（`.card-title` / `table`）と `.hint` だけ。`herdr/index.html` をコピーして中身を書き換えるのが早い。
+   印刷ボタン・QRボタン・一覧へ戻るリンク・QR表示部は `page.js` が自動で挿入するので、ページ側に書くのはカード（`.card-title` / `table`）と `.hint` だけ。`herdr/index.html` をコピーして中身を書き換えるのが早い。印刷ボタンが不要なページは `<body data-no-print>` にする。
 
 3. トップの `index.html` の `.list` にリンクを1件追加する
 

@@ -1,9 +1,13 @@
 // 各チートシートページ共通のフッター（印刷/QR/一覧ボタンとQR表示部）を
 // 注入して配線する。ページ側は qrcode.js のあとにこのファイルを読み込むだけ。
+// <body data-no-print> を付けたページには印刷ボタンを出さない。
 (function () {
+  var printBtn = document.body.hasAttribute('data-no-print')
+    ? ''
+    : '<button onclick="window.print()">印刷</button>';
   document.body.insertAdjacentHTML('beforeend',
     '<div class="actions">' +
-      '<button onclick="window.print()">印刷</button>' +
+      printBtn +
       '<button id="qrBtn">このページのQR</button>' +
       '<a class="button" href="../">一覧へ</a>' +
     '</div>' +

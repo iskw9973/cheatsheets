@@ -6,6 +6,7 @@
 - Herdr: https://iskw9973.github.io/cheatsheets/herdr/
 - Ghostty: https://iskw9973.github.io/cheatsheets/ghostty/
 - Zsh Line Editing: https://iskw9973.github.io/cheatsheets/zsh/
+- Neovim: https://iskw9973.github.io/cheatsheets/nvim/
 
 ## 構成
 
@@ -15,7 +16,7 @@ cheatsheets/
 ├── assets/
 │   ├── base.css         # 共通デザイン（カード・kbd・テーブル・QR表示・印刷用CSSなど）
 │   ├── qrcode.js         # QRコード生成ライブラリ（kazuhikoarase/qrcode-generator）
-│   └── qr.js             # QRボタンの共通ロジック
+│   └── page.js           # 共通フッター（印刷/QR/一覧ボタン・QR表示部）の注入とQR生成
 └── <tool-name>/
     └── index.html        # 各チートシート本体
 ```
@@ -36,27 +37,12 @@ cheatsheets/
    <link rel="stylesheet" href="../assets/base.css">
    ...
    <script src="../assets/qrcode.js"></script>
-   <script src="../assets/qr.js"></script>
-   <script>setupQrButton('qrBtn', 'qrWrap', 'qrImg', 'qrCaption');</script>
+   <script src="../assets/page.js"></script>
    ```
 
-   `herdr/index.html` をコピーしてカード内容（`.card-title` / `table` の中身）を書き換えるのが早い。
+   印刷ボタン・QRボタン・一覧へ戻るリンク・QR表示部は `page.js` が自動で挿入するので、ページ側に書くのはカード（`.card-title` / `table`）と `.hint` だけ。`herdr/index.html` をコピーして中身を書き換えるのが早い。
 
-3. 印刷ボタン・QRボタン・一覧へ戻るリンクをそのまま流用する
-
-   ```html
-   <div class="actions">
-     <button onclick="window.print()">印刷</button>
-     <button id="qrBtn">このページのQR</button>
-     <a class="button" href="../">一覧へ</a>
-   </div>
-   <div class="qr-wrap" id="qrWrap">
-     <div class="qr-box"><img id="qrImg" alt="QR code for this page"></div>
-     <div class="qr-caption" id="qrCaption"></div>
-   </div>
-   ```
-
-4. トップの `index.html` の `.list` にリンクを1件追加する
+3. トップの `index.html` の `.list` にリンクを1件追加する
 
    ```html
    <a class="list-item" href="foo/">
@@ -65,7 +51,7 @@ cheatsheets/
    </a>
    ```
 
-5. `main` に push すれば GitHub Pages が自動で再ビルドする（数十秒〜数分）
+4. `main` に push すれば GitHub Pages が自動で再ビルドする（数十秒〜数分）
 
 ## 動作確認
 

@@ -142,21 +142,3 @@ button:hover, a.button:hover { border-color: var(--accent); color: var(--accent)
 .list-item:hover { border-color: var(--accent); }
 .list-item .name { font-weight: 700; font-size: 15px; }
 .list-item .desc { font-size: 12px; color: var(--sub); margin-top: 2px; }
-
-@media print {
-  body { padding: 0; background: #fff; }
-  h1.eyebrow, .hint, .actions, .qr-wrap { display: none; }
-  .card {
-    box-shadow: none;
-    border: 1px solid #999;
-    width: 91mm;
-    max-width: 91mm;
-    padding: 5mm 6mm;
-    border-radius: 3mm;
-  }
-  .card-title { font-size: 13pt; }
-  .card-sub { font-size: 7.5pt; }
-  td { font-size: 8.5pt; padding: 3px 0; }
-  kbd { font-size: 7.5pt; padding: 1px 4px; }
-  .section-label { font-size: 6.5pt; }
-}
